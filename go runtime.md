@@ -4,7 +4,7 @@
 
 ​	从Runtime的角度来看Go，包括Go调度和内存管理，其中Go调度包括GMP模型、goroutine网络调用产生的调度、goroutine系统调用产生的调度以及goroutine加锁产生的系统调用，内存管理包括Go的内存分配和GC。见下图所示：
 
-![概览](.\images\goruntime\概览.jpg)
+![概览](https://github.com/leiylrp/golang/blob/main/images/goruntime/%E6%A6%82%E8%A7%88.jpg)
 
 接下来就将从Go调度来理解Golang Runtime。为了更好的理解Golang Runtime，理解操作系统中的进程管理和内存管理以及必要的网络编程知识我觉得是必要的。
 
