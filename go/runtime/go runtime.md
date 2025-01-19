@@ -4,7 +4,7 @@
 
 ​	从Runtime的角度来看Go，包括Go调度和内存管理，其中Go调度包括GMP模型、goroutine网络调用产生的调度、goroutine系统调用产生的调度以及goroutine加锁产生的系统调用，内存管理包括Go的内存分配和GC。见下图所示：
 
-![概览](.\images\goruntime\概览.jpg)
+![概览](https://github.com/leiylrp/golang/blob/main/images/goruntime/%E6%A6%82%E8%A7%88.jpg)
 
 接下来就将从Go调度来理解Golang Runtime。为了更好的理解Golang Runtime，理解操作系统中的进程管理和内存管理以及必要的网络编程知识我觉得是必要的。
 
@@ -24,7 +24,7 @@
 
 ​	这样就进入多进程/多线程时代，同样在单核CPU中，当CPU执行进程A出现磁盘读写时，进程A会阻塞，那么CPU就会切换到进程B执行，这样就会大大缩短了执行时间，进程A在系统调用的同时，CPU还能去执行进程B。通过下面的图来理解会更清晰。
 
-![多线程](.\images\goruntime\多线程.jpg)
+![多线程](https://github.com/leiylrp/golang/blob/main/images/goruntime/%E5%A4%9A%E7%BA%BF%E7%A8%8B.jpg)
 
 ​	在图中我们可以看到，多线程模型中，单核CPU在同一时刻只能执行一个进程，没有办法同一时刻执行多个进程，这个就是操作系统中的并发模型：多个进程在同一时刻，交替执行。如果我们在一个双核CPU中，两个CPU同时执行一个进程，这个就是操作系统中的并行。
 
@@ -34,7 +34,7 @@
 
 ​	操作系统管理进程就是在多个PCB建立数据结构。有些PCB处于运行态，有些PCB会处于就绪态，有些则处于等待态。所以操作系统管理进程，就是将多个进程的PCB放在不同的队列中。所以通过PCB+状态+队列就是操作系统对多个进程的组织。
 
-![进程状态图](.\images\goruntime\进程状态图.jpg)
+![进程状态图](https://github.com/leiylrp/golang/blob/main/images/goruntime/%E8%BF%9B%E7%A8%8B%E7%8A%B6%E6%80%81%E5%9B%BE.jpg)
 
 ​	回到：进程=资源+指令序列，这个资源就包括内存。结合多进程模型来看，单核CPU执行进程A，进程A需要进行系统调用了，CPU就切换到进程B，在这个切换的过程中就需要切换映射表(内存)和指令序列，代价比较大。那么我们可以将资源和指令序列分开，能够实现一个资源+多个指令的执行序列，就能更大化的减少开销。
 
@@ -44,7 +44,7 @@
 
 ​	所以需要明确 进程、线程（用户态线程、内核级线程）和协程 在操作系统中的关系和原理。为后续理解Go中的Goroutine坐下铺垫。
 
-![进程线程协程](.\images\goruntime\进程线程协程.jpg)
+![进程线程协程](https://github.com/leiylrp/golang/blob/main/images/goruntime/%E8%BF%9B%E7%A8%8B%E7%BA%BF%E7%A8%8B%E5%8D%8F%E7%A8%8B.jpg)
 
 ### 1、GMP模型
 
