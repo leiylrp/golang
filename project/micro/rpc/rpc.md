@@ -8,7 +8,7 @@ RPC的核心组成：
     （3）序列化和反序列化
     （4）寻址和负载均衡
 
-    ![p1](https://github.com/leiylrp/golang/blob/main/images/project/micro/micro/p2.png)
+![p1](https://github.com/leiylrp/golang/blob/main/images/project/micro/micro/p2.png)
 ### 1.1 代理与远程代理如何实现？
 核心：
     （1）客户端如何通过反射拿到对应的结构体字段的参数以及字段，并修改结构体字段为网络调用函数？
