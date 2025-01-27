@@ -8,7 +8,7 @@ RPC的核心组成：
     （3）序列化和反序列化
     （4）寻址和负载均衡
 
-    p2
+    ![p1](https://github.com/leiylrp/golang/blob/main/images/project/micro/micro/p2.png)
 ### 1.1 代理与远程代理如何实现？
 核心：
     （1）客户端如何通过反射拿到对应的结构体字段的参数以及字段，并修改结构体字段为网络调用函数？
@@ -44,7 +44,8 @@ RPC的核心组成：
 
 ## 2.RPC服务消费方核心功能实现
 
-### 2.1 连接管理 p3
+### 2.1 连接管理 
+![p3](https://github.com/leiylrp/golang/blob/main/images/project/micro/micro/p3.png)
 保持与服务提供方的长连接，用于传输数据和返回结果。预先分配连接、连接池。
 核心：
     （1）初始化时机？网关和业务模块如何初始化？
@@ -61,7 +62,8 @@ RPC的核心组成：
 
 
 
-### 2.2 负载均衡 p4
+### 2.2 负载均衡 
+![p4](https://github.com/leiylrp/golang/blob/main/images/project/micro/micro/p4.png)
 确保多个服务提供方节点流量均匀合理，支持节点扩容与灰度发布。
 负载均衡策略：轮询、随机、取模、带权重、一致性hash
 核心： 
@@ -71,7 +73,8 @@ RPC的核心组成：
     （1）权重负载均衡如何实现？随机数组和随机值？
         可以通过权重
 
-### 2.3 请求路由 p5
+### 2.3 请求路由 
+![p5](https://github.com/leiylrp/golang/blob/main/images/project/micro/micro/p5.png)
 通过一系列规则过滤出可以选择的服务提供方节点列表，在应用隔离，读写分离，灰度发布中都发挥作用。
 流量规则路由，某些流量策略只能发送到某几个节点
 
