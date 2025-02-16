@@ -9,3 +9,7 @@
 # MySQL Innodb存储引擎 —— 知识脑图
 
 ![p2](https://github.com/leiylrp/golang/blob/main/images/mind/innodb.png)
+
+# Redis —— 知识脑图
+
+![p2](https://github.com/leiylrp/golang/blob/main/images/mind/redis.png)
